@@ -13,12 +13,12 @@ class LinkedList {
     }
 
     // method functions
-    add(element){
+    append(element){
         // Create new node
         const node = new Node(element);
 
         // Store current node
-        const current;
+        let current;
 
         // If the list is empty add element and make it the head
         if (this.head == null){
@@ -35,13 +35,27 @@ class LinkedList {
         this.size++;
     }
 
+    prepend(element){
+        const node = new Node(element);
+
+        //If the list is empty add element and make it the head
+        if (this.head == null){
+            this.head = node;
+        }
+        else {
+            node.next = this.head;
+            this.head = node;
+        }
+        this.size++;
+    }
+
     insertAt(element, index) {
         if (index < 0 || index > this.size){
             return console.log('Please enter valid index.')
         } else {
             // Create a new node
             const node = new Node(element);
-            const curr, prev;
+            let curr, prev;
             curr = this.head;
 
             // Add the element to the first index
@@ -99,5 +113,38 @@ class LinkedList {
 
     }
 
+    size() {
+        console.log(this.size)
+    }
+
+    grabHead() {
+        if (this.head == null){
+            return;
+        }
+        else {
+            return this.head;
+        }
+    }
+
+    grabTail() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+
 
 }
+
+
+const list = new LinkedList;
+list.append(25)
+list.append(42)
+list.prepend(13)
+console.log(list.grabHead())
