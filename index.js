@@ -139,6 +139,23 @@ class LinkedList {
         }
     }
 
+    pop() {
+        if (!this.head) {
+            return null;
+        }
+        if (this.head.next == null) {
+            return null;
+        }
+        // Find the second to last node
+        let secondLast = this.head;
+        while (secondLast.next.next != null) {
+            secondLast = secondLast.next
+        }
+        // Remove the last node or next after second to last
+        secondLast.next = null;
+        this.size--;
+    }
+
 
 }
 
@@ -147,4 +164,3 @@ const list = new LinkedList;
 list.append(25)
 list.append(42)
 list.prepend(13)
-console.log(list.grabHead())
