@@ -173,6 +173,20 @@ class LinkedList {
         return false;
     }
 
+    find(value) {
+        if (this.head == null) {
+            return null;
+        }
+        let node = this.head;
+        let index = 0;
+        while (node != null) {
+            if (node.element == value) return index;
+            node = node.next;
+            index++;
+        }
+        return null;
+    }
+
 
 }
 
