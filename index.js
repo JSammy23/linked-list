@@ -187,6 +187,19 @@ class LinkedList {
         return null;
     }
 
+    toString() {
+        if (this.head == null) {
+            return null;
+        }
+        let node = this.head;
+        let stringList = '';
+        while (node != null) {
+            stringList += `(${node.element}) -> `;
+            node = node.next;
+        }
+        return (stringList += 'null');
+    }
+
 
 }
 
