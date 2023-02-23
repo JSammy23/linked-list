@@ -156,6 +156,23 @@ class LinkedList {
         this.size--;
     }
 
+    contains(value) {
+        if (this.head == null) {
+            return false;
+        }
+        if (this.head == value) {
+            return true;
+        }
+        let node = this.head;
+        while (node != null) {
+            if (node.element == value) {
+                return true
+            }
+            node = node.next;
+        }
+        return false;
+    }
+
 
 }
 
