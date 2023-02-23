@@ -113,6 +113,20 @@ class LinkedList {
 
     }
 
+    at(index) {
+        if (this.head == null) {
+            return null;
+        }
+        let node = this.head;
+        for (let i = 0; i < index; i++) {
+            node = node.next;
+            if (node == null) {
+                return "There is no item for this index"
+            }
+            return node;
+        }
+    }
+
     size() {
         console.log(this.size)
     }
